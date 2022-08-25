@@ -12,22 +12,34 @@
     }
 </style>
 
-<body style="font-family: Open Sans, sans-serif" class="bg-gray-200">
+<body style="font-family: Open Sans, sans-serif" class="bg-gray-900">
 <section>
-    <nav class="md:flex md:justify-between md:items-center py-6 px-6 border border-black rounded-xl border-opacity-5 bg-gray-300">
-        <a href="/" class="font-semibold text-xl border-b border-white hover:border-gray-400">
-            <h1>App Status</h1>
-        </a>
-        <a href="/register" class="font-semibold text-l border-b border-white hover:border-gray-400 float-right">
-            <h2>Log In</h2>
-        </a>
+    <nav class="md:flex md:justify-between md:items-center py-5 px-5 border border-black border-opacity-5 bg-gray-800">
+        <div class="flex items-center space-x-4">
+            <a href="/" class="font-semibold text-xl border-b border-white hover:border-gray-400 text-white hover:text-gray-400">
+                <h1>App Status</h1>
+            </a>
+            <div class="relative">
+                <input type="text" class="rounded bg-gray-700 placeholder-white text-white w-72 px-3 py-1" placeholder="Search...">
+            </div>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="#" class="font-semibold text-l border-b border-white hover:border-gray-400 text-white hover:text-gray-400">
+                Favourites
+            </a>
+            <a href="/register" class="font-semibold text-l border-b border-white hover:border-gray-400 text-white hover:text-gray-400">
+                <h2>Log In</h2>
+            </a>
+
+        </div>
     </nav>
+    <div>
     {{$slot}}
-    <div class="position-absolute">
+    </div>
+    <div class="">
         <footer id="newsletter"
-                class="bg-gray-300 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16 ">
-            <img src="/images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
-            <h5 class="text-3xl">Stay in touch with the latest posts</h5>
+                class="bg-gray-800 border border-black border-opacity-5 text-center py-10 px-10 mt-16 ">
+            <h5 class="text-3xl"></h5>
         </footer>
     </div>
 </section>

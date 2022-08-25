@@ -1,7 +1,7 @@
 <x-layout>
     <div class="px-6">
-        <h3 class="text-sm font-bold mt-3 border-b border-black border-opacity-5">
-            Az App-Status állapot-jelző felülete
+        <h3 class="text-sm font-bold mt-3 border-b border-black border-opacity-5 text-white">
+            Az App-Status állapotjelző felülete
         </h3>
         <p class="text-gray-400 text-xs">Ezen az oldalon a(z) Google Workspace részeként működő szolgáltatásokkal
             kapcsolatos állapotinformációk láthatók. Az alábbi listán található szolgáltatások aktuális állapotának
@@ -10,14 +10,15 @@
             információ ezekről a szolgáltatásokról: https://workspace.google.com/. A Google Analytics-eseményekhez
             látogasson el a Google Ads állapot-irányítópultra.</p>
     </div>
-    <div class="px-6 py-6 bg-gray-300 rounded-xl mt-6 border border-black border-opacity-5">
-    <ul>
-        <x-app-list-item ></x-app-list-item>
-        <x-app-list-item ></x-app-list-item>
-        <x-app-list-item ></x-app-list-item>
-        <x-app-list-item ></x-app-list-item>
-        <x-app-list-item ></x-app-list-item>
-    </ul>
+    <div>
+        <ul>
+            @foreach($apps as $app)
+                <x-app-list-item :app="$app"></x-app-list-item>
+            @endforeach
+        </ul>
+        <div class="m-6">
+            {{$apps->links()}}
+        </div>
 
     </div>
 </x-layout>
