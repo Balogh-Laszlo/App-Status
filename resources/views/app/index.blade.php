@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="px-6">
+    <div class="px-16">
         <h3 class="text-sm font-bold mt-3 border-b border-black border-opacity-5 text-white">
             Az App-Status állapotjelző felülete
         </h3>
@@ -16,7 +16,7 @@
                 <x-app-list-item :app="$app"></x-app-list-item>
             @endforeach
         </ul>
-        <div class="m-6">
+        <div class="m-16">
             {{$apps->links()}}
         </div>
 

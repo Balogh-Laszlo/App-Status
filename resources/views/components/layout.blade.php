@@ -14,13 +14,13 @@
 
 <body style="font-family: Open Sans, sans-serif" class="bg-gray-900">
 <section>
-    <nav class="md:flex md:justify-between md:items-center py-5 px-5 border border-black border-opacity-5 bg-gray-800">
+    <nav class="md:flex md:justify-between md:items-center py-5 px-6 border border-black border-opacity-5 bg-gray-800">
         <div class="flex items-center space-x-4">
             <a href="/" class="font-semibold text-xl border-b border-white hover:border-gray-400 text-white hover:text-gray-400">
                 <h1>App Status</h1>
             </a>
             <div class="relative">
-                <input type="text" class="rounded bg-gray-700 placeholder-white text-white w-72 px-3 py-1" placeholder="Search...">
+                <input type="text" class="rounded bg-gray-700 placeholder-white text-white w-96 px-3 py-1" placeholder="Search...">
             </div>
         </div>
         <div class="flex items-center space-x-4">
@@ -38,7 +38,7 @@
     </div>
     <div class="">
         <footer id="newsletter"
-                class="bg-gray-800 border border-black border-opacity-5 text-center py-10 px-10 mt-16 ">
+                class="bg-gray-800 border border-black border-opacity-5 text-center py-10 px-16 mt-16 ">
             <h5 class="text-3xl"></h5>
         </footer>
     </div>

@@ -15,10 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[AppController::class,'index']);
+Route::get('/app/{app:id}',[AppController::class,'show']);
 
 Route::get('/register', function (){
     return view('register/create');
 });
-Route::get('/app',function (){
-    return view('single-app');
-});
+
