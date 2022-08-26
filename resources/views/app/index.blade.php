@@ -1,9 +1,9 @@
 <x-layout>
     <div class="px-16">
-        <h3 class="text-sm font-bold mt-3 border-b border-black border-opacity-5 text-white">
+        <h3 class="text-sm font-bold mt-3 border-b border-gray-300 text-blue-300">
             Az App-Status állapotjelző felülete
         </h3>
-        <p class="text-gray-400 text-xs">Ezen az oldalon a(z) Google Workspace részeként működő szolgáltatásokkal
+        <p class="text-xs text-gray-400">Ezen az oldalon a(z) Google Workspace részeként működő szolgáltatásokkal
             kapcsolatos állapotinformációk láthatók. Az alábbi listán található szolgáltatások aktuális állapotának
             megtekintéséhez látogasson vissza ide. Ha itt nem szereplő problémát tapasztal, vegye fel a kapcsolatot az
             ügyfélszolgálattal. További tájékoztatás az irányítópulton közzétett információkról: GYIK. További

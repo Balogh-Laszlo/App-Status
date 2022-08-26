@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Error;
 use App\Models\Feature;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Feature::factory(30)->create();
+        Error::factory(30)->create();
     }
 }
