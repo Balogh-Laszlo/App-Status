@@ -14,7 +14,8 @@ class AppController extends Controller
     }
     public function show(App $app){
         return view('app.show',[
-            'app' => $app
+            'app' => $app,
+            'features' => $app->features(),
         ]);
     }
 }

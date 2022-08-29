@@ -9,6 +9,7 @@ class Error extends Model
 {
     use HasFactory;
 
+    protected $guarded =[];
     public function feature(){
         return $this->belongsTo(Feature::class,'feature_id');
     }
