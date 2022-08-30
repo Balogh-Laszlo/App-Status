@@ -3,6 +3,9 @@
 <x-layout>
     <div class="mx-16 my-6">
         <h1 class="text-blue-500 font-bold text-center">{{$app->title}}</h1>
+        <p class="text-center text-gray-400 pt-6">
+            {{$app->description}}
+        </p>
     </div>
     <div class="container flex justify-center">
         <div class="flex flex-col">
@@ -34,7 +37,7 @@
                             </th>
                         </tr>
                         </thead>
-                        <tbody class="bg-gray-200 divide-y divide-gray-300">
+                        <tbody class="bg-gray-100 divide-y divide-gray-300">
                         @foreach($app->features as $feature)
                             @php
                                 //                                $errors = $feature->errors->relevant();
@@ -42,7 +45,7 @@
                                                                 $stats_error = [1 => false, 2 => false, 3 => false, 4 => false, 5 => false];
                                                                 $stats_warning = [1 => false, 2 => false, 3 => false, 4 => false, 5 => false];
 
-                                                                if ($errors->count() > 0) {
+                                                                if ($errors->count()) {
 
                                                                     foreach ($errors as $error) {
 
@@ -64,7 +67,7 @@
                             @endphp
 
                             <tr class="whitespace-nowrap">
-                                <td class="px-6 py-4 text-sm text-gray-900">
+                                <td class="px-6 py-4 text-sm text-blue-400 font-semibold">
                                     {{$feature->title}}
                                 </td>
                                 <td class="px-6 py-4">

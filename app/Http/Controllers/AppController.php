@@ -7,7 +7,7 @@ use App\Models\App;
 class AppController extends Controller {
     public function index() {
         return view('app.index', [
-            'apps' => App::latest()->paginate(10)
+            'apps' => App::latest()->paginate(11)
         ]);
     }
 

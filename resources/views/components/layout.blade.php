@@ -43,7 +43,7 @@
     </div>
     <div class="">
         <footer id="newsletter"
-                class="bg-gray-100 border rounded-t-xl border-gray-300 text-center py-10 px-16 mt-16 ">
+                class="bg-gray-100 border rounded-t-xl border-gray-300 text-center py-10 px-16 mt-16 position-absolute">
             <h5 class="text-3xl"></h5>
         </footer>
     </div>
