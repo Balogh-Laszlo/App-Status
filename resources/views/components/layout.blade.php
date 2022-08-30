@@ -16,25 +16,30 @@
 <section>
     <nav class="md:flex md:justify-between md:items-center py-5 px-6 border border-gray-300 bg-gray-100 rounded-b-xl">
         <div class="flex items-center space-x-4">
-            <a href="/" class="font-semibold text-blue-500 text-xl hover:text-blue-600 focus:outline-none focus:text-blue-600">
+            <a href="/"
+               class="font-semibold text-blue-500 text-xl hover:text-blue-600 focus:outline-none focus:text-blue-600">
                 <h1>App Status</h1>
             </a>
             <div class="relative ">
-                <input type="text" class="rounded border border-gray-300 bg-gray-100 placeholder-gray-500 text-gray-900 w-96 px-3 py-1 focus:border-gray-400 focus:outline-none" placeholder="Search...">
+                <input type="text"
+                       class="rounded border border-gray-300 bg-gray-100 placeholder-gray-500 text-gray-900 w-96 px-3 py-1 focus:border-gray-400 focus:outline-none"
+                       placeholder="Search...">
             </div>
         </div>
         <div class="flex items-center space-x-4">
-            <a href="#" class="font-semibold text-l text-red-300 hover:text-red-400 focus:outline-none focus:text-red-400">
+            <a href="#"
+               class="font-semibold text-l text-red-300 hover:text-red-400 focus:outline-none focus:text-red-400">
                 Favourites
             </a>
-            <a href="/register" class="font-semibold text-l text-blue-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+            <a href="/register"
+               class="font-semibold text-l text-blue-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">
                 <h2>Log In</h2>
             </a>
 
         </div>
     </nav>
     <div>
-    {{$slot}}
+        {{$slot}}
     </div>
     <div class="">
         <footer id="newsletter"

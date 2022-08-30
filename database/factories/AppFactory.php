@@ -8,15 +8,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\App>
  */
-class AppFactory extends Factory
-{
+class AppFactory extends Factory {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    public function definition()
-    {
+    public function definition() {
         return [
             'user_id' => User::factory(),
             'title' => $this->faker->sentence,

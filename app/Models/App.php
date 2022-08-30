@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class App extends Model
-{
+class App extends Model {
     use HasFactory;
-    protected $guarded=[];
-    public function author(){
-        return $this->belongsTo(User::class,'user_id');
+
+    protected $guarded = [];
+
+    public function author() {
+        return $this->belongsTo(User::class, 'user_id');
     }
-    public function features(){
+
+    public function features() {
         return $this->hasMany(Feature::class);
     }
 }

@@ -2,8 +2,5 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-class FeatureController extends Controller
-{
+class FeatureController extends Controller {
 }

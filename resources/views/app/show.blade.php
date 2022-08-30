@@ -1,4 +1,4 @@
-@php use App\Constants\FeatureStatusEnum;use App\Http\Controllers\ErrorController;use Carbon\Carbon; @endphp
+@php use Carbon\Carbon; @endphp
 @inject('provider','App\Http\Controllers\ErrorController')
 <x-layout>
     <div class="mx-16 my-6">
@@ -29,52 +29,93 @@
                             <th class="px-6 py-2 text-xs text-gray-900">
                                 {{Carbon::now()->subDays(1)->toFormattedDateString()}}
                             </th>
-                            <th class="px-6 py-2 text-xs text-green-400">
+                            <th class="px-6 py-2 text-xs text-blue-400">
                                 {{Carbon::now()->toFormattedDateString()}}
                             </th>
                         </tr>
                         </thead>
                         <tbody class="bg-gray-200 divide-y divide-gray-300">
                         @foreach($app->features as $feature)
-                                <?php
-                                $errors = $provider->latestErrors($feature);
-                                $stats_error = ['day_before' => false, '2_days_before' => false, '3_days_before' => false, '4_days_before' => false, '5_days_before' => false];
-                                $stats_warning = ['day_before' => false, '2_days_before' => false, '3_days_before' => false, '4_days_before' => false, '5_days_before' => false];
+                            @php
+                                //                                $errors = $feature->errors->relevant();
+                                                                $errors = $provider->latestErrors($feature);
+                                                                $stats_error = [1 => false, 2 => false, 3 => false, 4 => false, 5 => false];
+                                                                $stats_warning = [1 => false, 2 => false, 3 => false, 4 => false, 5 => false];
 
-                                ?>
-                            {{$errors->first()}}
+                                                                if ($errors->count() > 0) {
 
-                            @foreach($errors as $error)
+                                                                    foreach ($errors as $error) {
 
-                                {{Carbon::now()->diffInDays(Carbon::createFromTimestamp($error['occurred_at']))}}
-                            @endforeach
+                                                                //                                       calc how many days before was occurred
+                                                                    $days_before = Carbon::now()->diffInDays(Carbon::createFromFormat('Y-m-d H:i:s', $error->occurred_at));
+                                                                    if ($days_before > 0 && $days_before < 6) {
+                                                                //                                        if it's a warning
+                                                                    if ($error->status == 2) {
+                                                                        $stats_warning[$days_before] = true;
+                                                                    } //                                        if it's an error
+                                                                    elseif ($error->status == 3) {
+                                                                        $stats_error[$days_before] = true;
+                                                                    }
+                                                                //                                        anything else doesn't matter
+
+                                                                        }
+                                                                    }
+                                                                }
+                            @endphp
+
                             <tr class="whitespace-nowrap">
                                 <td class="px-6 py-4 text-sm text-gray-900">
                                     {{$feature->title}}
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="text-sm text-gray-900">
-
+                                        @if($stats_warning[5])
+                                            <x-status-sign :type="'warning'"></x-status-sign>
+                                        @endif
+                                        @if($stats_error[5])
+                                            <x-status-sign :type="'error'"></x-status-sign>
+                                        @endif
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="text-sm text-gray-900">
-
+                                        @if($stats_warning[4])
+                                            <x-status-sign :type="'warning'"></x-status-sign>
+                                        @endif
+                                        @if($stats_error[4])
+                                            <x-status-sign :type="'error'"></x-status-sign>
+                                        @endif
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="text-sm text-gray-900">
-
+                                        @if($stats_warning[3])
+                                            <x-status-sign :type="'warning'"></x-status-sign>
+                                        @endif
+                                        @if($stats_error[3])
+                                            <x-status-sign :type="'error'"></x-status-sign>
+                                        @endif
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="#">
-                                        <img src="/images/error-sign.png" class="w-5 h-5 mx-auto">
+                                        @if($stats_warning[2])
+                                            <x-status-sign :type="'warning'"></x-status-sign>
+                                        @endif
+                                        @if($stats_error[2])
+                                            <x-status-sign :type="'error'"></x-status-sign>
+                                        @endif
                                     </a>
                                 </td>
                                 <td class="px-6 py-4 text-sm text-gray-500">
                                     <a href="#">
-                                        <img src="/images/warning-sign.png" class="w-5 h-5 mx-auto">
+                                        @if($stats_warning[1])
+                                            <x-status-sign :type="'warning'"></x-status-sign>
+                                        @endif
+                                        @if($stats_error[1])
+                                            <x-status-sign :type="'error'"></x-status-sign>
+                                        @endif
+
                                     </a>
                                 </td>
                                 <td class="px-6 py-4">

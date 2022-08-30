@@ -1,4 +1,9 @@
-@props(['error_id','src'])
-<a href="/error/{{$error_id}}">
-    <img src="/images/{{$src}}" class="w-5 h-5 mx-auto">
-</a>
+@props(['type'])
+
+@if(isset($type))
+    @if($type == 'warning')
+        <img src="/images/warning-sign.png" class="w-5 h-5 mx-auto">
+    @else
+        <img src="/images/error-sign.png" class="w-5 h-5 mx-auto">
+    @endif
+@endif
