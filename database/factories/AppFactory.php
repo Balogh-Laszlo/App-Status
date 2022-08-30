@@ -18,7 +18,8 @@ class AppFactory extends Factory {
         return [
             'user_id' => User::factory(),
             'title' => $this->faker->sentence,
-            'description' => $this->faker->text
+            'excerpt' => implode("\n", $this->faker->paragraphs(2)),
+            'description' => implode("\n", $this->faker->paragraphs(6))
         ];
     }
 }

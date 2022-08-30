@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Constants\FeatureStatusEnum;
 use App\Models\Feature;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -20,7 +19,7 @@ class ErrorFactory extends Factory {
         return [
             'feature_id' => Feature::factory(),
             'description' => $this->faker->sentence,
-            'status' => FeatureStatusEnum::WARNING,
+            'status' => 2,
             'occurred_at' => Carbon::now()->subDay()
         ];
     }

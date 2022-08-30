@@ -11,7 +11,7 @@
                         </a>
                     </h1>
                     <div class="py-3 text-gray-400">
-                        {{$app->description}}
+                        {{$app->excerpt}}
                     </div>
                 </div>
             </header>
