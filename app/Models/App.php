@@ -17,4 +17,15 @@ class App extends Model {
     public function features() {
         return $this->hasMany(Feature::class);
     }
+
+    public function scopeFilter($query, array $filters) {
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            $query->where(fn($query) => $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('description', 'like', '%' . $search . '%'));
+        });
+    }
+
+    public function usersThatLiked() {
+        return $this->belongsToMany(User::class, 'favourites');
+    }
 }

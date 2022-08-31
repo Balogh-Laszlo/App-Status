@@ -17,4 +17,11 @@ class Feature extends Model {
     public function errors() {
         return $this->hasMany(Error::class);
     }
+
+    public function scopeFilter($query, array $filters) {
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            $query->where(fn($query) => $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('description', 'like', '%' . $search . '%'));
+        });
+    }
 }

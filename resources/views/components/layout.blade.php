@@ -21,20 +21,40 @@
                 <h1>App Status</h1>
             </a>
             <div class="relative ">
-                <input type="text"
-                       class="rounded border border-gray-300 bg-gray-100 placeholder-gray-500 text-gray-900 w-96 px-3 py-1 focus:border-gray-400 focus:outline-none"
-                       placeholder="Search...">
+                <form method="GET" action="{{url()->current()}}">
+                    <input type="text"
+                           name="search"
+                           class="rounded border border-gray-300 bg-gray-100 placeholder-gray-500 text-gray-900 w-96 px-3 py-1 focus:border-gray-400 focus:outline-none"
+                           placeholder="Search..." value="{{request('search')}}">
+                </form>
             </div>
         </div>
         <div class="flex items-center space-x-4">
-            <a href="#"
+            <a href="/favourites"
                class="font-semibold text-l text-red-300 hover:text-red-400 focus:outline-none focus:text-red-400">
                 Favourites
             </a>
-            <a href="/register"
-               class="font-semibold text-l text-blue-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">
-                <h2>Log In</h2>
-            </a>
+            @auth
+                <a href="#"
+                   class="font-semibold text-l text-blue-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+                    <h2>Hi, {{auth()->user()->name}}!</h2>
+                </a>
+                <form method="POST" action="/logout"
+
+                      class="font-semibold text-l text-blue-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+                    @csrf
+                    <button type="submit">Log Out</button>
+                </form>
+            @else
+                <a href="/register"
+                   class="font-semibold text-l text-blue-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+                    <h2>Register</h2>
+                </a>
+                <a href="/login"
+                   class="font-semibold text-l text-blue-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+                    <h2>Log In</h2>
+                </a>
+            @endauth
 
         </div>
     </nav>

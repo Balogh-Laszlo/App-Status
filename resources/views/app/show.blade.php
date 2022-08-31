@@ -38,7 +38,7 @@
                         </tr>
                         </thead>
                         <tbody class="bg-gray-100 divide-y divide-gray-300">
-                        @foreach($app->features as $feature)
+                        @foreach($features as $feature)
                             @php
                                 //                                $errors = $feature->errors->relevant();
                                                                 $errors = $provider->latestErrors($feature);
@@ -68,7 +68,9 @@
 
                             <tr class="whitespace-nowrap">
                                 <td class="px-6 py-4 text-sm text-blue-400 font-semibold">
-                                    {{$feature->title}}
+                                    <a href="/features/{{$feature->id}}">
+                                        {{$feature->title}}
+                                    </a>
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="text-sm text-gray-900">
