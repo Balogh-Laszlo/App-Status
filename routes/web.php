@@ -31,4 +31,5 @@ Route::get('/login', [SessionController::class, 'create']);
 Route::post('/login', [SessionController::class, 'store']);
 
 Route::get('/favourites', [FavouriteController::class, 'index']);
+Route::get('favourite/{app:id}', [FavouriteController::class, 'store']);
 
