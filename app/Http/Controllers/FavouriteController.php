@@ -9,9 +9,13 @@ use App\Models\User;
 
 class FavouriteController extends Controller {
     public function index() {
-        return view('favourite.index', [
-            'apps' => auth()->user()->favourites()->latest()->filter(request(['search']))->paginate(11)->withQueryString()
-        ]);
+        if (auth()->check()) {
+            return view('favourite.index', [
+                'apps' => auth()->user()->favourites()->latest()->filter(request(['search']))->paginate(11)->withQueryString()
+            ]);
+        }
+
+        return redirect('/login');
     }
 
     public function store(App $app) {

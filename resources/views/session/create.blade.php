@@ -49,6 +49,10 @@
 
 
             </form>
+            <div class="text-center text-gray-400 text-sm py-3">
+                Don't have an account. <a href="/register" class="text-blue-500 text-sm font-semibold">Register for
+                    free!</a>
+            </div>
         </main>
     </section>
 </x-layout>

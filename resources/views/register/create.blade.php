@@ -64,8 +64,6 @@
                         Register
                     </button>
                 </div>
-
-
             </form>
         </main>
     </section>

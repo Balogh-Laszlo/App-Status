@@ -44,7 +44,8 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="text-sm text-blue-400">
-                                        {{Carbon::createFromFormat('Y-m-d H:i:s',$error->occurred_at)->diffForHumans()}}
+                                        {{$error->occurred_at}}
+                                        {{'('.Carbon::createFromFormat('Y-m-d H:i:s',$error->occurred_at)->diffForHumans().')'}}
                                     </div>
                                 </td>
                             </tr>
