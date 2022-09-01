@@ -18,20 +18,20 @@ class FavouriteController extends Controller {
         return redirect('/login');
     }
 
-    public function store(App $app) {
-        $fav = Favourite::where('user_id', '=', auth()->id())->where('app_id', '=', $app->id)->get();
+    public function store() {
+        $fav = Favourite::where('user_id', '=', auth()->id())->where('app_id', '=', request('app'))->get();
         if ($fav->count() > 0) {
             foreach ($fav as $f) {
                 $f->delete();
             }
         } else {
             $attributes['user_id'] = auth()->id();
-            $attributes['app_id'] = $app->id;
+            $attributes['app_id'] = request('app');
 
             Favourite::create($attributes);
         }
 
-        return redirect(url()->previous());
+        return back();
     }
 
     public static function isFavourite(App $app, User $user) {
