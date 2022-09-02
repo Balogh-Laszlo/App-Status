@@ -36,10 +36,23 @@
                 Favourites
             </a>
             @auth
-                <a href="#"
-                   class="font-semibold text-l text-blue-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">
-                    <h2>Hi, {{auth()->user()->name}}!</h2>
-                </a>
+                <x-dropdown>
+                    <x-slot name="trigger">
+                        <a href="#"
+                           class="font-semibold text-l text-blue-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+                            <h2>Hi, {{auth()->user()->name}}!</h2>
+                        </a>
+                    </x-slot>
+                    @admin
+                    <x-dropdown-item href="/admin/dashboard" :active="request()->is('admin/dashboard')">
+                        Dashboard
+                    </x-dropdown-item>
+                    <x-dropdown-item href="/admin/app/create" :active="request()->is('admin/app/create')">
+                        New App
+                    </x-dropdown-item>
+                    @endadmin
+                </x-dropdown>
+
                 <form method="POST" action="/logout"
 
                       class="font-semibold text-l text-blue-500 hover:text-blue-600 focus:outline-none focus:text-blue-600">

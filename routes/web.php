@@ -23,13 +23,15 @@ Route::get('/app/{app:id}', [AppController::class, 'show']);
 
 Route::get('/features/{feature:id}', [FeatureController::class, 'show']);
 
-Route::get('/register', [RegisterController::class, 'create']);
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
-Route::post('/logout', [SessionController::class, 'destroy']);
-Route::get('/login', [SessionController::class, 'create']);
-Route::post('/login', [SessionController::class, 'store']);
+Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
+Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 
 Route::get('/favourites', [FavouriteController::class, 'index']);
 Route::post('favourites', [FavouriteController::class, 'store']);
+
+Route::get('/admin/app/create', [AppController::class, 'create']);
 

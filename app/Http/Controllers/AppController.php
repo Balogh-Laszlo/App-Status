@@ -17,4 +17,8 @@ class AppController extends Controller {
             'features' => $app->features()->filter(request(['search']))->paginate(10)->withQueryString(),
         ]);
     }
+
+    public function create() {
+        return view('app.create');
+    }
 }
