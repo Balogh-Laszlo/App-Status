@@ -31,7 +31,9 @@ Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
 Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 
 Route::get('/favourites', [FavouriteController::class, 'index']);
-Route::post('favourites', [FavouriteController::class, 'store']);
+Route::post('/favourites', [FavouriteController::class, 'store']);
 
-Route::get('/admin/app/create', [AppController::class, 'create']);
+Route::get('/admin/app/create', [AppController::class, 'create'])->middleware('admin');
+Route::post('/admin/app/store', [AppController::class, 'store'])->middleware('admin');
+Route::get('/admin/feature/create/{app:id}', [FeatureController::class, 'create'])->middleware('admin');
 

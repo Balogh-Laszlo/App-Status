@@ -136,6 +136,33 @@
                                 </td>
                             </tr>
                         @endforeach
+                        @admin
+                        <tr class="whitespace-nowrap">
+                            <td class="px-6 py-4 text-sm text-blue-400 font-semibold">
+                                <a href="/admin/feature/create/{{$app->id}}">
+                                    +ADD FEATURE+
+                                </a>
+                            </td>
+                            <td class="px-6 py-4">
+
+                            </td>
+                            <td class="px-6 py-4">
+
+                            </td>
+                            <td class="px-6 py-4">
+
+                            </td>
+                            <td class="px-6 py-4">
+
+                            </td>
+                            <td class="px-6 py-4">
+
+                            </td>
+                            <td class="px-6 py-4">
+
+                            </td>
+                        </tr>
+                        @endadmin
                         </tbody>
                     </table>
                 </div>

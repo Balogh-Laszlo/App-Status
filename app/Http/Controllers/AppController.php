@@ -21,4 +21,18 @@ class AppController extends Controller {
     public function create() {
         return view('app.create');
     }
+
+    public function store() {
+        $attributes = request()->validate([
+            'title' => ['required', 'min:5'],
+            'excerpt' => ['required', 'min:12'],
+            'description' => ['required', 'min:12']
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+
+        $app = App::create($attributes);
+
+        return redirect('/')->with('success', $app->title . ' created successfully!');
+    }
 }

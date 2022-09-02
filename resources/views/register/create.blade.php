@@ -15,6 +15,7 @@
                            type="text"
                            name="name"
                            id="name"
+                           value="{{old('name')}}"
                            required
                     >
 
@@ -33,6 +34,7 @@
                            type="text"
                            name="email"
                            id="email"
+                           value="{{old('email')}}"
                            required
                     >
 
