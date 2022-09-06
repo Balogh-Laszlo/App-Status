@@ -39,6 +39,7 @@
                 <x-form.text_input name="description" placeholder="Description..."></x-form.text_input>
 
                 <input class="hidden" name="feature_id" id="feature_id" value="{{$feature->id}}">
+                <input class="hidden" name="app_id" id="app_id" value="{{$feature->app_id}}">
                 <div class="flex flex-col justify-center items-center">
                     <button type="Submit"
                             class="bg-blue-500 text-white rounded-3xl px-6 py-2 font-semibold">

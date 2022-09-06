@@ -56,7 +56,7 @@ class FeatureController extends Controller {
                     Error::create($attributes);
                 }
 
-                return back();
+                return redirect('/app/' . request('app_id'));
             }
 
 
