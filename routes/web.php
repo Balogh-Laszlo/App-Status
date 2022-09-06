@@ -36,5 +36,7 @@ Route::post('/favourites', [FavouriteController::class, 'store']);
 Route::get('/admin/app/create', [AppController::class, 'create'])->middleware('admin');
 Route::post('/admin/app/store', [AppController::class, 'store'])->middleware('admin');
 Route::get('/admin/feature/create/{app:id}', [FeatureController::class, 'create'])->middleware('admin');
-Route::post('admin/feature/store', [FeatureController::class, 'store'])->middleware('admin');
+Route::post('/admin/feature/store', [FeatureController::class, 'store'])->middleware('admin');
+Route::get('/admin/feature/status/{feature:id}', [FeatureController::class, 'status_update'])->middleware('admin');
+Route::post('/admin/feature/status', [FeatureController::class, 'status_store'])->middleware('admin');
 

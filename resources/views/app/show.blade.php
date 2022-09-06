@@ -124,7 +124,13 @@
                                     </a>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#">
+                                        <?php $ref = '#' ?>
+                                    @admin
+                                        <?php
+                                        $ref = '/admin/feature/status/' . $feature->id;
+                                        ?>
+                                    @endadmin
+                                    <a href="{{$ref}}">
                                         @if($feature->status == 1)
                                             <img src="/images/success-sign.png" class="w-5 h-5 mx-auto">
                                         @elseif($feature->status == 2)
