@@ -56,7 +56,7 @@ class FeatureController extends Controller {
                     Error::create($attributes);
                 }
 
-                return redirect('/app/' . request('app_id'));
+                return redirect('/app/' . request('app_id'))->with('success', 'Status successfully changed!');
             }
 
 
