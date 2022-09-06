@@ -4,42 +4,8 @@
             <h1 class="text-center font-bold text-xl">Log In!</h1>
             <form method="POST" action="/login">
                 @csrf
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="email"
-                    >
-                        email
-                    </label>
-
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="text"
-                           name="email"
-                           id="email"
-                           required
-                    >
-
-                    @error('email')
-                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="password"
-                    >
-                        password
-                    </label>
-
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="password"
-                           name="password"
-                           id="password"
-                           required
-                    >
-
-                    @error('password')
-                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                    @enderror
-                </div>
+                <x-form.input name="email"></x-form.input>
+                <x-form.input name="password" type="password"></x-form.input>
                 <div class="flex flex-col justify-center items-center">
                     <button type="Submit"
                             class="bg-blue-500 text-white rounded-3xl px-6 py-2 font-semibold">
